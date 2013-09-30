@@ -1,0 +1,13 @@
+development:
+  access_key_id: "AKIAJW7MJYODEMEMPUZQ"
+  secret_access_key: "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"
+  bucket: "trialtask"
+test:
+  access_key_id: "AKIAJW7MJYODEMEMPUZQ"
+  secret_access_key: "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"
+  bucket: "trialtask"
+production:
+  access_key_id: "AKIAJW7MJYODEMEMPUZQ"
+  secret_access_key: "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"
+  bucket: "trialtask"
+
