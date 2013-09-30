@@ -8,6 +8,8 @@ class GadgetsController < ApplicationController
   # GET /gadgets.json
   def index
     @gadgets = Gadget.all
+    @q = Gadget.search(params[:q])
+    @gadgets = @q.result(distinct: true)
   end
 
   # GET /gadgets/1

@@ -40,6 +40,7 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem 'protected_attributes'
 gem 'cocoon'
+gem 'ransack'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
