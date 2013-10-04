@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/anjlab/bootstrap-rails.git
+  revision: 24e9ee8edfb0b810fb2ba4f33169773b49c6fb83
+  specs:
+    anjlab-bootstrap-rails (3.0.0.3)
+      railties (>= 3.0)
+      sass (>= 3.2)
+
+GIT
   remote: git://github.com/rails/sprockets-rails.git
   revision: 18026870bb5fde945802674fb5b88be976ff6b94
   specs:
@@ -80,10 +88,11 @@ GEM
       rails (>= 3.0.0)
     database_cleaner (1.1.1)
     debug_inspector (0.0.2)
-    devise (3.0.0)
+    devise (3.1.1)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
+      thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.4)
     email_spec (1.5.0)
@@ -210,6 +219,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  anjlab-bootstrap-rails!
   aws-sdk
   better_errors
   binding_of_caller
