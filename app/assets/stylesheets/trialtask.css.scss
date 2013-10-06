@@ -208,6 +208,9 @@ body {
 // Responsive Styles
 
 @media (max-width: 480px) {
+  .form-group {
+    margin-bottom: 0px;
+  }
   #main-title {
     top: 80px;
     left: 10px;
@@ -239,6 +242,7 @@ body {
     .jumbotron h5 {margin-top: 0px;}
   }
   #gadget-user-title h2 {font-size: 20px;}
+  .btn-block + .btn-block {margin-top: 0;}
 }
 
 /* Mobile devices (tablets, 767px and down) */
@@ -251,8 +255,12 @@ body {
     left: 35px;
   }
   .item {
+    h2 {font-size: 18px;}
     h3 {font-size: 18px;}
+    p {font-size: 13px;}
+    .email {font-size: 12px;} 
   }
+  .btn-block + .btn-block {margin-top: 0!important;}
 }
 
 /* Small devices (tablets, 768px and up) */

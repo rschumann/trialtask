@@ -20,7 +20,7 @@
   </div>  
 <% end %>
 
-<div class="row"> 
+<div id="gadget-user-title" class="row">
   <div class="col-xs-9">
     <h2>Gadgets by <%= @user.email %></h2>
   </div>
@@ -51,7 +51,6 @@
           <%= link_to 'Show', gadget, class: 'btn btn-default' %>
           <% if gadget.user == current_user %>
             <%= link_to 'Edit', edit_gadget_path(gadget), class: 'btn btn-success' %></td>
-            <%= link_to 'Destroy', gadget, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
           <% end %>
         </p>
       </div>
