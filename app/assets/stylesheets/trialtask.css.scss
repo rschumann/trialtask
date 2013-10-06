@@ -1,6 +1,7 @@
 /*
   By Sebastian Schkudlara http://www.jevvellabs.com sebastian.schkudlara@gmail.com
 */
+
 @import "trialtask-bootstrap.scc.scss";
 @import "twitter/bootstrap";
 
@@ -159,7 +160,6 @@ body {
 .jumbotron label {
   font-size: 14px;
 }
-
 .form-signin {
   max-width: 330px;
   padding: 15px;
@@ -178,8 +178,8 @@ body {
   height: auto;
   padding: 10px;
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .form-signin .form-control:focus {
   z-index: 2;
@@ -232,6 +232,7 @@ body {
   .item {
     h2 {font-size: 14px;}
     h3 {font-size: 11px;}
+    p {font-size: 10px;}
     .email {font-size: 9px;}
   }
 }

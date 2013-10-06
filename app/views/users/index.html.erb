@@ -18,7 +18,7 @@
 
 <div id="gadgets-index" class="row"> 
   <% @users.each do |user| %>
-    <div class="col-xs-6 col-sm-4 col-md-3 item-box" data-no-turbolink>
+    <article class="col-xs-6 col-sm-4 col-md-3 item-box" data-no-turbolink>
 	  <% user.gadgets.limit(1).each do |gadget| %>
 	    <div>      
 	      <% gadget.images.limit(1).each do |image| %>
@@ -43,7 +43,7 @@
 	      </div>
 	    </div>
 	  <% end %>
-    </div>
+    </article>
   <% end %>  
 </div>
 <hr class="transparent" />

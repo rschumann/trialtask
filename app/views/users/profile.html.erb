@@ -31,7 +31,7 @@
 
 <div id="gadgets-index" class="row"> 
   <% @user.gadgets.each do |gadget| %>
-    <div class="col-xs-6 col-sm-4 col-md-3 item-box" data-no-turbolink>      
+    <article class="col-xs-6 col-sm-4 col-md-3 item-box" data-no-turbolink>      
       <% gadget.images.limit(1).each do |image| %>
 	    <%= link_to image_tag(image.photo(:square)), gadget %><br />     
 	  <% end %>
@@ -55,7 +55,7 @@
           <% end %>
         </p>
       </div>
-    </div>
+    </article>
   <% end %>
 </div>
 
