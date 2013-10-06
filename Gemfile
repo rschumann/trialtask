@@ -2,31 +2,23 @@ source 'https://rubygems.org'
 
 ruby '2.0.0'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
 gem 'pg'
 
-# Use sqlite3 as the database for Active Record
 gem 'sqlite3', :group => [:development, :test]
 
 gem 'sprockets-rails', github: 'rails/sprockets-rails'
 gem 'sass-rails', '~> 4.0.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
-
 gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails', github: 'anjlab/bootstrap-rails'
+gem 'asset_sync'
 
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
-# Use jquery as the JavaScript library
 gem 'jquery-rails'
 
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
 group :doc do
@@ -35,12 +27,16 @@ group :doc do
 end
 
 gem 'devise'
-
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'protected_attributes'
 gem 'cocoon'
 gem 'ransack'
+gem 'simple_form'
+gem 'country_select'
+gem 'kaminari'
+gem 'truncate_html'
+gem 'colorbox-rails'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
@@ -57,5 +53,7 @@ end
 
 gem 'better_errors', :group => :development
 gem 'binding_of_caller', :group => :development
+
+gem 'rails_12factor', group: :production
 
 gem 'unicorn'

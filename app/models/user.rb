@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
          
   has_many :gadgets, :dependent => :destroy
   
+  paginates_per 12
+  
 end

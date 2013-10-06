@@ -1,23 +1,78 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @gadget.name %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @gadget.content %>
-</p>
-
-<% unless @gadget.images.blank? %>
-  <% @gadget.images.each do |image| %>
-    <%= image_tag image.photo.url %>
-  <% end %>
-<% end %>
-<% if @gadget.user == current_user %>
-  <%= link_to 'Edit', edit_gadget_path(@gadget) %> |
-  <%= link_to 'Destroy', @gadget, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<% content_for :jumbotron do %>
+  <div class="jumbotron jumbotron-gadget">
+    <div class="container">      
+      <div id="main-title" class="title-circle">
+      	<h1><%= truncate_html(@gadget.name, :length => 40, :omission => '...') %></h1>
+      	<p>
+      	  <%=raw truncate_html(@gadget.content, :length => 50, :omission => '...') %>
+      	</p>
+      	<p>
+      	  <i class="clearfix"><%= @gadget.created_at.strftime("%d %B %Y") %></i>
+  	  	  <i class="clearfix">By: <%= link_to @gadget.user.email, @gadget.user %></i>	  	  
+  	    </p>
+      </div>
+    </div>
+  </div>  
 <% end %>
 
-<%= link_to 'Back', gadgets_path %>
+<article id="gadget" class="row">
+
+  <div class="col-md-6">
+    <div class="row">
+	  <% @gadget.images.each do |image| %>
+	    <div class="col-md-4 photo">
+	      <%= link_to image_tag(image.photo(:square), class: 'img-responsive'), image.photo(:large), rel: 'group1', data: { colorbox: true, colorbox_max_width: '100%', colorbox_max_height: '93%', colorbox_static: true } %>
+	    </div>
+	  <% end %>      
+    </div>
+  </div>
+  
+  <div class="col-md-6">
+    <% if @gadget.user == current_user %>
+      <p>      
+	    <%= link_to 'Edit', edit_gadget_path(@gadget), class: 'btn btn-success btn-sm' %>
+	    <%= link_to 'Destroy', @gadget, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %></td>
+	  </p>
+    <% end %>
+    <h2><%= @gadget.name %></h2>    
+    <p>
+  	  <i class="clearfix"><%= @gadget.created_at.strftime("%d %B %Y") %></i>
+  	  <i class="clearfix">By: <%= link_to @gadget.user.email, @gadget.user %></i>	  	  
+    </p>    
+    <p><%=raw @gadget.content %></p>
+    
+    <hr class="transparent" />
+    
+    <% if @gadget.user.gadgets.count > 1 %>
+      <div class="jumbotron">      
+        <h4 class="text-center">More from <%= link_to @gadget.user.email, @gadget.user %></h4>
+        <hr />
+	    <% @gadget.user.gadgets.each do |gadget| %>
+	      <div class="row">
+	        <div class="col-md-12 photo" data-no-turbolink>
+	          <div class="row">
+	            <div class="col-xs-3">
+	              <% gadget.images.limit(1).each do |image| %>
+			        <%= link_to image_tag(image.photo(:square), class: 'img-responsive'), '#' %>
+			      <% end %>	            
+	            </div>
+	            <div class="col-xs-9">
+	              <h5><%= link_to gadget.name, gadget %></h5>
+	              <h6><%=raw truncate_html(gadget.content, :length => 100, :omission => "%s") % link_to("... [more]", gadget) %></h6>
+	            </div>
+	          </div>  	        
+	        </div>
+	      </div>
+	    <% end %>
+      </div> 
+    <% end %>   
+  </div>  
+</article>
+
+<!-- Begin: Image loaded into jumbotron -->
+  <% @gadget.images.order("RANDOM()").limit(1).each do |image| %>
+    <style type="text/css">
+      .jumbotron-gadget {background: url('<%= image.photo(:large) %>') no-repeat center center fixed;}
+    </style>  
+  <% end %>	
+<!-- End -->

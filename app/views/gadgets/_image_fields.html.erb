@@ -1,5 +1,8 @@
-<div class="nested-fields">
-  <label>Image :</label>
-  <%= f.file_field :photo %>
-  <%= link_to_remove_association "Remove Photo", f %>
+<div class="nested-fields row">
+  <div class="col-xs-9"> 
+    <%= f.file_field :photo, class: 'btn btn-default' %>
+  </div>
+  <div class="col-xs-3 centered"> 
+    <%= link_to_remove_association "Remove", f, class: 'btn btn-sm btn-link' %>
+  </div>
 </div>

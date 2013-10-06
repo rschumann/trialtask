@@ -1,6 +1,7 @@
-<h1>Editing gadget</h1>
+<h1>Editing <%= @gadget.name %></h1>
+<p class="text-right" data-no-turbolink>      
+  <%= link_to 'Show Gadget', gadget_path(@gadget), class: 'btn btn-default btn-sm' %>
+  <%= link_to 'Destroy', @gadget, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %></td>
+</p>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @gadget %> |
-<%= link_to 'Back', gadgets_path %>

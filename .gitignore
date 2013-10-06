@@ -17,6 +17,7 @@
 .redcar/
 .sass-cache
 /config/database.yml
+/config/s3.yml
 /public/cache
 /public/stylesheets/compiled
 /public/system/*

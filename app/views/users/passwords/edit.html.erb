@@ -1,16 +1,13 @@
-<h2>Change your password</h2>
-
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), html: { :method => :post, class: "form-signin" } ) do |f| %>
   <%= devise_error_messages! %>
   <%= f.hidden_field :reset_password_token %>
+  
+  <h2 class="form-signin-heading">Change your password</h2>
+  
+  <%= f.email_field :password, :autofocus => true, type: 'password', class: 'form-control input-lg confirm', placeholder: "Password" %>
+  <%= f.email_field :password_confirmation, type: 'password', class: 'form-control input-lg confirm', placeholder: "Password confirmation" %>
 
-  <div><%= f.label :password, "New password" %><br />
-  <%= f.password_field :password, :autofocus => true %></div>
-
-  <div><%= f.label :password_confirmation, "Confirm new password" %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Change my password" %></div>
+  <%= f.submit "Change my password", class: 'btn btn-lg btn-primary btn-block' %>      
+  <hr />
+  <%= render "users/shared/links" %>
 <% end %>
-
-<%= render "users/shared/links" %>

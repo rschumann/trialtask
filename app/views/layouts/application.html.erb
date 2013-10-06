@@ -2,19 +2,57 @@
 <html>
 <head>
   <title>Trialtask</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+  
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="../../docs-assets/js/html5shiv.js"></script>
+    <script src="../../docs-assets/js/respond.min.js"></script>
+  <![endif]-->
+  
+  <%= csrf_meta_tags %>  
+  <%= yield(:head) %>
 </head>
-<body>
-<%= render 'layouts/navigation' %>
-<% if notice %>
-  <p class="alert alert-notice"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-error"><%= alert %></p>
-<% end %>
-<%= yield %>
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <%= render 'layouts/navigation' %>
+      </div>
+    </div>
+    <div class="messages">
+      <% if notice %>
+	    <p class="alert alert-notice alert-dismissable">
+	      <%= notice %>
+	      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	    </p>
+	  <% end %>
+	  <% if alert %>
+	    <p class="alert alert-error alert-dismissable">
+	      <%= alert %>
+	      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	    </p>
+	  <% end %>
+    </div>
+    
+    <%= yield :jumbotron %>    
+
+    <div class="container"> 
+    
+      <%= yield %>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2013</p>
+      </footer>
+      
+    </div> <!-- /container -->
 
 </body>
 </html>

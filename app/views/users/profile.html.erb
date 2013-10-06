@@ -1,0 +1,71 @@
+<% content_for :jumbotron do %>
+  <div class="jumbotron jumbotron-gadget">
+    <div class="container">      
+      <div id="main-title" class="title-circle">
+      	<h1>My Gadgets</h1>
+      	<p>
+      	  <i>My email:</i>
+      	  <i><%= @user.email %></i>
+      	</p>
+      	<p>
+      	  <i>Gadgets:</i>
+      	  <i><%= @user.gadgets.count %></i>
+      	</p>
+      	<p>
+      	  <%= link_to 'New Gadget', new_gadget_path, class: 'btn btn-success' %>
+      	  <%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-primary' %>
+      	</p>
+      </div>
+    </div>
+  </div>  
+<% end %>
+
+<div class="row"> 
+  <div class="col-xs-9">
+    <h2>Gadgets by <%= @user.email %></h2>
+  </div>
+  <div class="col-xs-3">
+    <%= link_to 'New Gadget', new_gadget_path, class: 'btn btn-success btn-md pull-right' %>
+  </div>
+</div>
+
+<div id="gadgets-index" class="row"> 
+  <% @user.gadgets.each do |gadget| %>
+    <div class="col-xs-6 col-sm-4 col-md-3 item-box" data-no-turbolink>      
+      <% gadget.images.limit(1).each do |image| %>
+	    <%= link_to image_tag(image.photo(:square)), gadget %><br />     
+	  <% end %>
+	  <div class="item">
+	    <div class="item-inner">
+	      <h2>
+	        <%= link_to truncate_html(gadget.name, :length => 20, :omission => '...'), gadget %>
+	      </h2>
+	      <p>
+	        <%=raw truncate_html(gadget.content, :length => 120, :omission => "%s") % link_to("... [more]", gadget) %>
+	      </p>
+	      <p>
+	        By: <%= link_to gadget.user.email, gadget.user %>
+	      </p>
+	    </div>
+        <p>
+          <%= link_to 'Show', gadget, class: 'btn btn-default' %>
+          <% if gadget.user == current_user %>
+            <%= link_to 'Edit', edit_gadget_path(gadget), class: 'btn btn-success' %></td>
+            <%= link_to 'Destroy', gadget, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<!-- Begin: Image loaded into jumbotron -->
+<% @user.gadgets.order("RANDOM()").limit(1).each do |gadget| %>
+  <% gadget.images.order("RANDOM()").limit(1).each do |image| %>
+    <style type="text/css">
+      .jumbotron-gadget {background: url('<%= image.photo(:large) %>') no-repeat center center fixed;}
+    </style>  
+  <% end %>	
+<% end %>
+<!-- End -->
+
