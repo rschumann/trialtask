@@ -34,8 +34,8 @@
 	    <div id="images-form" class="row">
 		  <% @gadget.images.each do |image| %>
 		    <% unless image.photo.blank? %>
-		      <div class="col-md-3">
-	            <%= image_tag image.photo(:thumb) %>
+		      <div class="col-md-3 photo">
+	            <%= image_tag image.photo(:square), class: 'img-responsive' %>
 		        <%= link_to 'destroy', gadget_image_path(@gadget, image), {:onclick => "return confirm('Are you sure?'), window.location.reload()", method: :delete, remote: true , class: 'btn btn-xs btn-danger'} %>		    
 			  </div>
 			<% end %>
