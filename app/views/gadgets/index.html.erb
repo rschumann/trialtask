@@ -50,7 +50,7 @@
 	      <p>
 	        <%=raw truncate_html(gadget.content, :length => 120, :omission => "%s") % link_to("... [more]", gadget) %>
 	      </p>
-	      <p>
+	      <p class="email">
 	        By: <%= link_to gadget.user.email, gadget.user %>
 	      </p>
 	    </div>
@@ -65,7 +65,7 @@
     </div>
   <% end %>
 </div>
-<hr />
+<hr class="transparent" />
 <div class="row"> 
   <div class="col-md-12">
     <%= paginate @gadgets %>

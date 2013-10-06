@@ -18,7 +18,7 @@
 
 <div id="gadgets-index" class="row"> 
   <% @users.each do |user| %>
-    <div class="col-xs-6 col-sm-4 col-md-3 item-box">
+    <div class="col-xs-6 col-sm-4 col-md-3 item-box" data-no-turbolink>
 	  <% user.gadgets.limit(1).each do |gadget| %>
 	    <div>      
 	      <% gadget.images.limit(1).each do |image| %>
@@ -33,7 +33,7 @@
 		      <p>
 		        Member since: <%= user.created_at.strftime("%d %B %Y") %> 
 		      </p>
-		      <p>
+		      <p class="email">
 		        Email: <%= link_to gadget.user.email, gadget.user %>
 		      </p>
 		    </div>
@@ -46,7 +46,7 @@
     </div>
   <% end %>  
 </div>
-<hr />
+<hr class="transparent" />
 <div class="row"> 
   <div class="col-md-12">
     <%= paginate @users %>
