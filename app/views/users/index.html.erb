@@ -16,7 +16,7 @@
   </div>
 <% end %>
 
-<div id="gadgets-index" class="row"> 
+<div id="gadgets-home" class="row"> 
   <% @users.each do |user| %>
     <article class="col-xs-6 col-sm-4 col-md-3 item-box" data-no-turbolink>
 	  <% user.gadgets.limit(1).each do |gadget| %>
