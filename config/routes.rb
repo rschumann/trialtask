@@ -1,8 +1,4 @@
 Trialtask::Application.routes.draw do
-
-  get "home/index"
-  get "users/index"
-  get "gadgets/index"
   
   devise_for :users
   devise_scope :user do
@@ -16,6 +12,10 @@ Trialtask::Application.routes.draw do
   resources :gadgets do
     resources :images
   end
+  
+  get "home/index"
+  get "users/index"
+  get "gadgets/index"
   
   unauthenticated do
     root to: "home#index"

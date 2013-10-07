@@ -7,7 +7,7 @@ class GadgetsController < ApplicationController
   # GET /gadgets
   # GET /gadgets.json
   def index
-    @gadgets = Gadget.all.page(params[:page])
+    @gadgets = Gadget.page(params[:page])
     @q = Gadget.search(params[:q])
     @gadgets = @q.result(distinct: true).page(params[:page])
   end

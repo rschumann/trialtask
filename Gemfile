@@ -37,6 +37,7 @@ gem 'country_select'
 gem 'kaminari'
 gem 'truncate_html'
 gem 'colorbox-rails'
+gem 'faker'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
